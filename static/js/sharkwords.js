@@ -21,11 +21,20 @@ const numWrong = 0;
 // The divs should be appended to the section with id="word-container".
 const createDivsForChars = (word) => {
   // Replace this with your code
+  for (let letter of word ){
+    document.querySelector('#word-container').insertAdjacentHTML('beforeend', `<div class="letter-box ${letter}"></div>`);
+  }
 };
 
 // Loop over each letter in the alphabet and generate a button for each letter
 // The buttons should be appended to the section with id="letter-buttons"
 const generateLetterButtons = () => {
+
+  for (let letter of ALPHABET ){
+    document.querySelector('#letter-buttons').insertAdjacentHTML('beforeend', `<button> ${letter} </button`);
+
+
+  }
   // Replace this with your code
 };
 
@@ -34,7 +43,7 @@ const generateLetterButtons = () => {
 // `buttonEl` is an `HTMLElement` object.
 //
 const disableLetterButton = (buttonEl) => {
-  // Replace this with your code
+  buttonEl.disabled = true
 };
 
 // This is a helper function we will use in the future
@@ -42,8 +51,15 @@ const disableLetterButton = (buttonEl) => {
 // For now, you should test it out to make sure it works
 
 const isLetterInWord = (letter) => {
-  // Replace this with your code
-};
+
+  for (let char in createDivsForChars(word)) {
+    if (char = letter) {
+      return true
+    }
+  }
+  return false
+}
+
 
 // This is like if __name__ == '__main__' in Python
 // It will be called when the file is run (because
@@ -55,9 +71,11 @@ const isLetterInWord = (letter) => {
   // and can tell if things look correct for this word
   const word = 'hello';
 
+  createDivsForChars(word)
   // call the function that makes an empty line for each letter in the word
   // Replace this line with the function call
 
+  generateLetterButtons(ALPHABET)
   // call the function that makes a button for each letter in the alphabet
   // Replace this line with the function call
 
